@@ -1,0 +1,36 @@
+﻿@page
+@model KTLT_Demo.Pages.MH_luu_diemModel
+@using KTLT_Demo.Business
+@{
+    Layout = null;
+    DIEM A, B;
+    A.X = A.Y = 0;
+    B.X = B.Y = 0;
+
+    string Chuoi = string.Empty;
+
+    if (Request.Method == "POST")
+    {
+        A.X = int.Parse(Request.Form["x1"]);
+        A.Y = int.Parse(Request.Form["y1"]);
+
+        XL_DIEM.LuuDiem(A, "d:\\diem.txt");
+
+        Chuoi = "Da luu diem";
+    }
+}
+<!DOCTYPE html>
+<html>
+<title> MAN HINH LUU DIEM </title>
+<body>
+
+    <form method="post">
+        <label for="fname">Nhap X1:</label><br>
+        <input type="text" id="lname" name="x1" value="@A.X"><br><br>
+        <label for="lname">Nhap Y1:</label><br>
+        <input type="text" id="lname" name="y1" value="@A.Y"><br><br>
+        <input type="submit" value="Tinh">
+    </form>
+    @Chuoi
+</body>
+</html>
