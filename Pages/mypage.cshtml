@@ -1,0 +1,45 @@
+﻿@page
+@model KTLT_Demo.Pages.mypageModel
+@using KTLT_Demo.Business
+@{
+    Layout = null;
+    PHANSO a, b;
+    a.TuSo = 0;
+    a.MauSo = 1;
+    b.TuSo = 0;
+    b.MauSo = 1;
+
+    string Chuoi = string.Empty;
+
+    if (Request.Method == "POST" )
+    {
+        a.TuSo = int.Parse(Request.Form["tu1"]);
+        a.MauSo = int.Parse(Request.Form["mau1"]);
+        b.TuSo = int.Parse(Request.Form["tu2"]);
+        b.MauSo = int.Parse(Request.Form["mau2"]);
+
+        PHANSO kq = XL_PHANSO.CongPS(a, b);
+
+        Chuoi = $"Ket qua la {kq.TuSo}/{kq.MauSo}";
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<title> Xu ly PHAN SO </title>
+<body>
+
+    <form method="post">
+        <label for="fname">Nhap Tu 1:</label><br>
+        <input type="text" id="fname" name="tu1" value="@a.TuSo,"><br>
+        <label for="lname">Nhap Mau 1:</label><br>
+        <input type="text" id="lname" name="mau1" value="@a.MauSo"><br><br>
+        <label for="fname">Nhap Tu 2:</label><br>
+        <input type="text" id="fname" name="tu2" value="@b.TuSo"><br>
+        <label for="lname">Nhap Mau 2:</label><br>
+        <input type="text" id="lname" name="mau2" value="@b.MauSo"><br><br>
+        <input type="submit" value="Tinh">
+    </form>
+    @Chuoi
+</body>
+</html>

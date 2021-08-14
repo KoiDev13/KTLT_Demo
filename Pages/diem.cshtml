@@ -1,0 +1,42 @@
+﻿@page
+@model KTLT_Demo.Pages.diemModel
+@using  KTLT_Demo.Business
+@{
+    Layout = null;
+    DIEM A, B;
+    A.X = A.Y = 0;
+    B.X = B.Y = 0;
+
+    string Chuoi = string.Empty;
+
+    if (Request.Method == "POST")
+    {
+        a.X = int.Parse(Request.Form["x1"]);
+        a.Y = int.Parse(Request.Form["y1"]);
+        b.X = int.Parse(Request.Form["x2"]);
+        b.Y = int.Parse(Request.Form["y2"]);
+
+        double kq = XL_DIEM.TinhKhoangCach(A, B);
+
+        Chuoi = $"Ket qua la {kq}";
+    }
+}
+<!DOCTYPE html>
+<html>
+<title> Xu ly TOA DO DIEM </title>
+<body>
+
+    <form method="post">
+        <label for="fname">Nhap X1:</label><br>
+        <input type="text" id="fname" name="tu1" value="@A.X,"><br>
+        <label for="lname">Nhap Y1:</label><br>
+        <input type="text" id="lname" name="mau1" value="@A.Y"><br><br>
+        <label for="fname">Nhap X2:</label><br>
+        <input type="text" id="fname" name="tu2" value="@B.X"><br>
+        <label for="lname">Nhap Y2:</label><br>
+        <input type="text" id="lname" name="mau2" value="@B.Y"><br><br>
+        <input type="submit" value="Tinh">
+    </form>
+    @Chuoi
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KTLT_Demo", "KTLT_Demo.csproj", "{485A60C5-707B-4826-9FAF-5FC4839959CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{485A60C5-707B-4826-9FAF-5FC4839959CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485A60C5-707B-4826-9FAF-5FC4839959CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485A60C5-707B-4826-9FAF-5FC4839959CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485A60C5-707B-4826-9FAF-5FC4839959CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {343A013F-4A49-4D65-B2DE-A765C3ADA62F}
+	EndGlobalSection
+EndGlobal
