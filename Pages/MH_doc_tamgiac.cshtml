@@ -1,0 +1,51 @@
+﻿@page
+@model KTLT_Demo.Pages.MH_doc_tamgiacModel
+@using KTLT_Demo.Business
+@{
+    Layout = null;
+    XL_TAMGIAC.TAMGIAC tg = XL_TAMGIAC.KhoiTaoTamGiac(0, 0, 0, 0, 0, 0);
+
+    string Chuoi = "";
+
+    if (Request.Method == "POST")
+    {
+        // Diem A
+        int x1 = int.Parse(Request.Form["x1"]);
+        int y1 = int.Parse(Request.Form["y1"]);
+        // Diem B
+        int x2 = int.Parse(Request.Form["x2"]);
+        int y2 = int.Parse(Request.Form["y2"]);
+        // Diem C
+        int x3 = int.Parse(Request.Form["x3"]);
+        int y3 = int.Parse(Request.Form["y3"]);
+
+        tg = XL_TAMGIAC.KhoiTaoTamGiac(x1, y1, x2, y2, x3, y3);
+
+        XL_TAMGIAC.LuuTamGiac(tg, Environment.CurrentDirectory + "/tamgiac.txt");
+    }
+}
+<!DOCTYPE html>
+<html>
+<body>
+    <form method="post">
+        <label for="fname">Nhap X1:</label><br>
+        <input type="text" id="fname" name="x1" value="@tg.A.X"><br>
+        <label for="lname">Nhap Y1:</label><br>
+        <input type="text" id="fname" name="y1" value="@tg.A.Y"><br><br>
+
+        <label for="fname">Nhap X2:</label><br>
+        <input type="text" id="fname" name="x2" value="@tg.B.X"><br><br>
+        <label for="lname">Nhap Y2:</label><br>
+        <input type="text" id="fname" name="y2" value="@tg.B.Y"><br><br>
+
+        <label for="fname">Nhap X3:</label><br>
+        <input type="text" id="fname" name="x2" value="@tg.C.X"><br><br>
+        <label for="lname">Nhap Y3:</label><br>
+        <input type="text" id="fname" name="y2" value="@tg.C.Y"><br><br>
+
+        <input type="submit" value="Lưu">
+    </form>
+
+    @Chuoi
+</body>
+</html>

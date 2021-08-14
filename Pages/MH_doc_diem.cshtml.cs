@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace KTLT_Demo.Pages
 {
-    public class diemModel : PageModel
+    public class MH_doc_diemModel : PageModel
     {
         public void OnGet()
         {

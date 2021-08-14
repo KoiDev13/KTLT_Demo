@@ -24,5 +24,19 @@ namespace KTLT_Demo.Business
             file.Write($"{a.X},{a.Y}");
             file.Close();
         }
+
+        public static DIEM DocDiem(string FilePath)
+        {
+            StreamReader file = new StreamReader(FilePath);
+            string s = file.ReadLine();
+
+            DIEM kq;
+            string[] M = s.Split(',');
+            kq.X = int.Parse(M[0]);
+            kq.Y = int.Parse(M[1]);
+
+            file.Close();
+            return kq;
+        }
     }
 }

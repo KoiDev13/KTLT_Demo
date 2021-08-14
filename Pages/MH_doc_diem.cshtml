@@ -1,0 +1,19 @@
+﻿@page
+@model KTLT_Demo.Pages.MH_doc_diemModel
+@using KTLT_Demo.Business
+@{
+    Layout = null;
+    DIEM A;
+    A.X = A.Y = 0;
+    string Chuoi = "";
+
+    A = XL_DIEM.DocDiem(Environment.CurrentDirectory + "/diem.txt");
+    Chuoi = $"{A.X}, {A.Y}";
+
+}
+<!DOCTYPE html>
+<html>
+<body>
+    @Chuoi
+</body>
+</html>

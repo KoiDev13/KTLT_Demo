@@ -13,8 +13,9 @@
     {
         A.X = int.Parse(Request.Form["x1"]);
         A.Y = int.Parse(Request.Form["y1"]);
-
-        XL_DIEM.LuuDiem(A, "d:\\diem.txt");
+        //XL_DIEM.LuuDiem(A,  "d:\\diem.txt");
+        //XL_DIEM.LuuDiem(A, AppContext.BaseDirectory +  "/diem.txt"); // Cho đường dẫn tới thư mục tới file DLL trong thư mục 
+        XL_DIEM.LuuDiem(A, Environment.CurrentDirectory + "/diem.txt");
 
         Chuoi = "Da luu diem";
     }
@@ -29,7 +30,7 @@
         <input type="text" id="lname" name="x1" value="@A.X"><br><br>
         <label for="lname">Nhap Y1:</label><br>
         <input type="text" id="lname" name="y1" value="@A.Y"><br><br>
-        <input type="submit" value="Tinh">
+        <input type="submit" value="Lưu">
     </form>
     @Chuoi
 </body>
