@@ -1,8 +1,9 @@
 ﻿@page
-@model KTLT_Demo.Pages.MH_doc_tamgiacModel
-@using KTLT_Demo.Business
+@model KTLT_Demo.Pages.MH_luu_tamgiacModel;
+@using KTLT_Demo.Business;
 @{
     Layout = null;
+
     XL_TAMGIAC.TAMGIAC tg = XL_TAMGIAC.KhoiTaoTamGiac(0, 0, 0, 0, 0, 0);
 
     string Chuoi = "";
@@ -21,9 +22,10 @@
 
         tg = XL_TAMGIAC.KhoiTaoTamGiac(x1, y1, x2, y2, x3, y3);
 
-        XL_TAMGIAC.LuuTamGiac(tg, Environment.CurrentDirectory + "/tamgiac.txt");
+        XL_TAMGIAC.LuuTamGiac(tg, "d:\\tamgiac.txt");
     }
 }
+
 <!DOCTYPE html>
 <html>
 <body>
@@ -39,13 +41,12 @@
         <input type="text" id="fname" name="y2" value="@tg.B.Y"><br><br>
 
         <label for="fname">Nhap X3:</label><br>
-        <input type="text" id="fname" name="x2" value="@tg.C.X"><br><br>
+        <input type="text" id="fname" name="x3" value="@tg.C.X"><br><br>
         <label for="lname">Nhap Y3:</label><br>
-        <input type="text" id="fname" name="y2" value="@tg.C.Y"><br><br>
+        <input type="text" id="fname" name="y3" value="@tg.C.Y"><br><br>
 
         <input type="submit" value="Lưu">
     </form>
-
     @Chuoi
 </body>
 </html>

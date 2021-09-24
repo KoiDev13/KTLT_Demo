@@ -1,0 +1,29 @@
+﻿@page
+@model KTLT_Demo.Pages.MH_luu_dagiacModel;
+@using KTLT_Demo.Business;
+@{
+    Layout = null;
+
+    string Chuoi = "";
+
+    if (Request.Method == "POST")
+    {
+        string dinh = Request.Form(["dinh"]);
+
+        DAGIAC dg = XL_DAGIAC.KhoiTaoDaGiac(dinh);
+
+        XL_DAGIAC.LuuDaGiac(dg, "d:\\dagiac.txt");
+    }
+}
+<!DOCTYPE html>
+<html>
+<body>
+    <form method="post">
+        <label for="fname">Nhap Da Giac:</label><br>
+        <input type="text" id="fname" name="dinh" value=""><br><br>
+
+        <input type="submit" value="Lưu">
+    </form>
+    @Chuoi
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿@page
+@model KTLT_Demo.Pages.MH_doc_dagiacModel
+@using KTLT_Demo.Business
+@{
+    Layout = null;
+    string Chuoi = "";
+
+    DAGIAC dg = XL_DAGIAC.DocDaGiac("d:\\dagiac.txt");
+
+    Chuoi = string.Empty;
+    foreach (DIEM d in dg.Dinh)
+    {
+        Chuoi = Chuoi + $"({d.X},{d.Y})";
+    }
+}
+<!DOCTYPE html>
+<html>
+<body>
+    @foreach (DIEM d in dg.Dinh)
+    {
+        @d.X  d.Y  <br/>
+    }
+</body>
+</html>
