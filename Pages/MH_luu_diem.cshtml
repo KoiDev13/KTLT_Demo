@@ -1,6 +1,8 @@
 ﻿@page
-@model KTLT_Demo.Pages.MH_luu_diemModel
-@using KTLT_Demo.Business
+@model KTLT_Demo.Pages.MH_luu_diemModel;
+@using KTLT_Demo.Business;
+@using KTLT_Demo.DAL; 
+@using KTLT_Demo.ENTITY; 
 @{
     Layout = null;
     DIEM A, B;
@@ -15,7 +17,7 @@
         A.Y = int.Parse(Request.Form["y1"]);
         //XL_DIEM.LuuDiem(A,  "d:\\diem.txt");
         //XL_DIEM.LuuDiem(A, AppContext.BaseDirectory +  "/diem.txt"); // Cho đường dẫn tới thư mục tới file DLL trong thư mục 
-        XL_DIEM.LuuDiem(A, Environment.CurrentDirectory + "/diem.txt");
+        LT_DIEM.LuuDiem(A, Environment.CurrentDirectory + "/diem.txt");
 
         Chuoi = "Da luu diem";
     }

@@ -3,34 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
+using KTLT_Demo.ENTITY;
+using KTLT_Demo.DAL;
+using KTLT_Demo.Business;
 
 namespace KTLT_Demo.Business
 {
-    public struct DAGIAC
-    {
-        public DIEM[] Dinh;
-    }
+    
     public class XL_DAGIAC
     {
-        public static DAGIAC DocDaGiac(string filePath)
+        public static bool LuuDaGiac(DAGIAC dg, string filePath)
         {
-            DAGIAC kq;
-            StreamReader file = new StreamReader(filePath);
-
-            string s = file.ReadLine();
-            int N = int.Parse(s);
-
-            kq.Dinh = new DIEM[N];
-
-            for (int i = 0; i < N; i++)
+            //Kiem tra tinh hop le cua du lieu
+            if (dg.Dinh.Length <= 3)
             {
-                s = file.ReadLine();
-                string[] M = s.Split(',');
-                kq.Dinh[i].X = int.Parse(M[0]);
-                kq.Dinh[i].Y = int.Parse(M[1]);
+                return false;
             }
-            file.Close();
-            return kq;
+            LT_DAGIAC.LuuDaGiac(dg, filePath);
+            return true;
         }
         public static DAGIAC KhoiTaoDaGiac(string dinh)
         {
@@ -47,14 +37,6 @@ namespace KTLT_Demo.Business
                 dg.Dinh[i].Y = int.Parse(K[1]);
             }
             return dg;
-        }
-        public static void LuuDaGiac(DG dg, string filePath)
-        {
-            StreamWriter file = new StreamWriter(filePath);
-            file.WriteLine($"{tg.A.X}, {tg.A.Y}");
-            file.WriteLine($"{tg.B.X}, {tg.B.Y}");
-            file.WriteLine($"{tg.C.X}, {tg.C.Y}");
-            file.Close();
         }
     }
 }

@@ -1,42 +1,27 @@
-﻿using System;
+﻿using KTLT_Demo.ENTITY;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using KTLT_Demo.DAL;
 
 namespace KTLT_Demo.Business
 {
-    public struct DIEM
-    {
-        public int X;
-        public int Y;
-    }
     public class XL_DIEM
     {
         public static double TinhKhoangCach(DIEM a, DIEM b)
         {
             return Math.Sqrt((a.X - b.Y) * (a.X - b.X) + (a.Y - b.Y) * (a.Y - b.Y));
         }
-
         public static void LuuDiem(DIEM a, string filePath)
         {
-            StreamWriter file = new StreamWriter(filePath);
-            file.Write($"{a.X},{a.Y}");
-            file.Close();
+            KTLT_Demo.DAL.LT_DIEM.LuuDiem(a, filePath);
         }
-
-        public static DIEM DocDiem(string FilePath)
+        public static DIEM DocDiem(string filePath)
         {
-            StreamReader file = new StreamReader(FilePath);
-            string s = file.ReadLine();
-
-            DIEM kq;
-            string[] M = s.Split(',');
-            kq.X = int.Parse(M[0]);
-            kq.Y = int.Parse(M[1]);
-
-            file.Close();
-            return kq;
+            DIEM a = KTLT_Demo.DAL.LT_DIEM.DocDiem(filePath);
+            return a;
         }
     }
 }

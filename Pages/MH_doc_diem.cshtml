@@ -1,13 +1,15 @@
 ﻿@page
 @model KTLT_Demo.Pages.MH_doc_diemModel
-@using KTLT_Demo.Business
+@using KTLT_Demo.Business;
+@using KTLT_Demo.ENTITY;
+@using KTLT_Demo.DAL;
 @{
     Layout = null;
     DIEM A;
     A.X = A.Y = 0;
     string Chuoi = "";
 
-    A = XL_DIEM.DocDiem(Environment.CurrentDirectory + "/diem.txt");
+    A = XL_DIEM.DocDiem("d:\\diem.txt");
     Chuoi = $"{A.X}, {A.Y}";
 
 }
