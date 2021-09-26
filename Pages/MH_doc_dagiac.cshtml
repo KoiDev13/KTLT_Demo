@@ -1,11 +1,14 @@
 ﻿@page
 @model KTLT_Demo.Pages.MH_doc_dagiacModel
 @using KTLT_Demo.Business
+@using KTLT_Demo.DAL;
+@using KTLT_Demo.ENTITY;  
 @{
     Layout = null;
     string Chuoi = "";
 
-    DAGIAC dg = XL_DAGIAC.DocDaGiac("d:\\dagiac.txt");
+    //DAGIAC dg = LT_DAGIAC.DocDaGiac("d:\\dagiac.txt");
+    DAGIAC dg = LT_DAGIAC.DocDaGiac("d:\\dagiac.json");
 
     Chuoi = string.Empty;
     foreach (DIEM d in dg.Dinh)
@@ -18,7 +21,7 @@
 <body>
     @foreach (DIEM d in dg.Dinh)
     {
-        @d.X   d.Y ;
+    <div>(@d.X, @d.Y)</div> 
     }
 </body>
 </html>

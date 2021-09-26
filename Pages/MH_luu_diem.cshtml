@@ -15,16 +15,15 @@
     {
         A.X = int.Parse(Request.Form["x1"]);
         A.Y = int.Parse(Request.Form["y1"]);
-        //XL_DIEM.LuuDiem(A,  "d:\\diem.txt");
+        XL_DIEM.LuuDiem(A,  "d:\\diem.json");
         //XL_DIEM.LuuDiem(A, AppContext.BaseDirectory +  "/diem.txt"); // Cho đường dẫn tới thư mục tới file DLL trong thư mục 
-        LT_DIEM.LuuDiem(A, Environment.CurrentDirectory + "/diem.txt");
+        //LT_DIEM.LuuDiem(A, Environment.CurrentDirectory + "/diem.txt");
 
         Chuoi = "Da luu diem";
     }
 }
 <!DOCTYPE html>
 <html>
-<title> MAN HINH LUU DIEM </title>
 <body>
 
     <form method="post">

@@ -4,27 +4,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
 using KTLT_Demo.ENTITY;
-using Newtonsoft.Json;
 
 namespace KTLT_Demo.DAL
 {
-    public class LT_DIEM
+    public class LT_DIEM_TEXT
     {
         public static void LuuDiem(DIEM a, string filePath)
         {
             StreamWriter file = new StreamWriter(filePath);
-            string json = JsonConvert.SerializeObject(a);
-            file.Write(json);
+            file.Write($"{a.X},{a.Y}");
             file.Close();
         }
 
         public static DIEM DocDiem(string FilePath)
         {
             StreamReader file = new StreamReader(FilePath);
-            string jsonText = file.ReadLine();
+            string s = file.ReadLine();
             file.Close();
 
-            DIEM kq = JsonConvert.DeserializeObject<DIEM>(jsonText);
+            DIEM kq;
+            string[] M = s.Split(',');
+            kq.X = int.Parse(M[0]);
+            kq.Y = int.Parse(M[1]);
             return kq;
         }
     }
