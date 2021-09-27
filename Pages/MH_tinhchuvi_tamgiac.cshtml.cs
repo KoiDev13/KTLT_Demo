@@ -7,20 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace KTLT_Demo.Pages
 {
-    public class MH_luu_diemModel : PageModel
+    public class MH_tinhchuvi_tamgiacModel : PageModel
     {
-        [BindProperty]
-        public int X1 { get; set; }
-
-        [BindProperty]
-        public int Y1 { get; set; }
-
         public void OnGet()
-        {
-            X1 = 1;
-            Y1 = 1;
-        }
-        public void OnPost()
         {
         }
     }

@@ -18,10 +18,39 @@
 }
 <!DOCTYPE html>
 <html>
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 20%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
 <body>
-    @foreach (DIEM d in dg.Dinh)
-    {
-    <div>(@d.X, @d.Y)</div> 
-    }
+    <table>
+        <tr>
+            <th>X</th>
+            <th>Y</th>
+        </tr>
+        @foreach (DIEM d in dg.Dinh)
+        {
+            <tr>
+                <td>@d.X</td>
+                <td>@d.Y</td>
+            </tr>
+        }
+    </table>
+    
 </body>
 </html>

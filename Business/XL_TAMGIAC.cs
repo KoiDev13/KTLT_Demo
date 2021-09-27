@@ -10,13 +10,6 @@ namespace KTLT_Demo.Business
 {
     public class XL_TAMGIAC
     {
-        public struct TAMGIAC
-        {
-            public DIEM A;
-            public DIEM B;
-            public DIEM C;
-        }
-
         public static void LuuTamGiac(TAMGIAC tg, string filePath)
         {
             StreamWriter file = new StreamWriter(filePath);
@@ -50,6 +43,15 @@ namespace KTLT_Demo.Business
 
             file.Close();
             return kq;
+        }
+
+        public static double TinhChuVi(TAMGIAC tg)
+        {
+            double a, b, c;
+            a = XL_DIEM.TinhKhoangCach(tg.B, tg.C);
+            b = XL_DIEM.TinhKhoangCach(tg.A, tg.C);
+            c = XL_DIEM.TinhKhoangCach(tg.B, tg.A);
+            return a + b + c;
         }
     }
 }

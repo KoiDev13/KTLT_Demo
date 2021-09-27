@@ -1,10 +1,12 @@
 ﻿@page
 @model KTLT_Demo.Pages.MH_luu_tamgiacModel;
 @using KTLT_Demo.Business;
+@using KTLT_Demo.ENTITY;
+@using KTLT_Demo.DAL;  
 @{
     Layout = null;
 
-    XL_TAMGIAC.TAMGIAC tg = XL_TAMGIAC.KhoiTaoTamGiac(0, 0, 0, 0, 0, 0);
+    ENTITY.TAMGIAC tg = XL_TAMGIAC.KhoiTaoTamGiac(0, 0, 0, 0, 0, 0);
 
     string Chuoi = "";
 

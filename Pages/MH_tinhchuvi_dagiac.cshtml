@@ -1,0 +1,32 @@
+﻿@page
+@model KTLT_Demo.Pages.MH_tinhchuvi_dagiacModel
+@using KTLT_Demo.Business;
+@using KTLT_Demo.ENTITY;
+@using KTLT_Demo.DAL;
+@{
+    Layout = null;
+
+    string Chuoi = "";
+
+    if (Request.Method == "POST")
+    {
+        string dinh = Request.Form["dinh"];
+
+        DAGIAC dg = XL_DAGIAC.KhoiTaoDaGiac(dinh);
+
+        double kq = XL_DAGIAC.TinhChuVi(dg);
+
+        Chuoi = "Chu vi cua da giac la: " + kq;
+    }
+}
+<!DOCTYPE html>
+<html>
+<body>
+    <form method="post">
+        <label for="fname">Nhap Da Giac:</label><br>
+        <input type="text" id="fname" name="dinh" value=""><br>
+        <input type="submit" value="Tính">
+    </form>
+    @Chuoi
+</body>
+</html>

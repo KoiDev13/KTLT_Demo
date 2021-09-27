@@ -5,16 +5,18 @@
 @using KTLT_Demo.ENTITY; 
 @{
     Layout = null;
-    DIEM A, B;
-    A.X = A.Y = 0;
-    B.X = B.Y = 0;
+    DIEM A;
+
+    //A.X = A.Y = 0;
+    A.X = Model.X1;
+    A.Y = Model.Y1;
 
     string Chuoi = string.Empty;
 
     if (Request.Method == "POST")
     {
-        A.X = int.Parse(Request.Form["x1"]);
-        A.Y = int.Parse(Request.Form["y1"]);
+        // A.X = int.Parse(Request.Form["x1"]);
+        // A.Y = int.Parse(Request.Form["y1"]);
         XL_DIEM.LuuDiem(A,  "d:\\diem.json");
         //XL_DIEM.LuuDiem(A, AppContext.BaseDirectory +  "/diem.txt"); // Cho đường dẫn tới thư mục tới file DLL trong thư mục 
         //LT_DIEM.LuuDiem(A, Environment.CurrentDirectory + "/diem.txt");
@@ -34,5 +36,6 @@
         <input type="submit" value="Lưu">
     </form>
     @Chuoi
+    Giá trị X = @Model.X1       Y = @Model.Y1 
 </body>
 </html>

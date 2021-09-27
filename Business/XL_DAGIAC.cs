@@ -38,5 +38,16 @@ namespace KTLT_Demo.Business
             }
             return dg;
         }
+
+        public static double TinhChuVi(DAGIAC dg)
+        {
+            double chuVi = 0;
+            for (int i = 0; i < dg.Dinh.Length - 1; i++)
+            {
+                chuVi = XL_DIEM.TinhKhoangCach(dg.Dinh[i], dg.Dinh[i + 1]);
+            }
+            chuVi = XL_DIEM.TinhKhoangCach(dg.Dinh[0], dg.Dinh[dg.Dinh.Length - 1]);
+            return chuVi;
+        }
     }
 }
